@@ -1,0 +1,352 @@
+/* global styling */
+html {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --blue-400: #60a5fa;
+    --blue-600: #2563eb;
+    --blue-700: #1d4ed8;
+    --profile-color: #4338ca;
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --text-font: #71717a;
+    --red: #EB5353;
+    --yellow: #F9D923;
+    --green: #36AE7C;
+}
+
+/* body */
+body {
+    display: grid;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar main";
+    overflow: auto;
+    background-color: var(--slate-100);
+}
+
+/* sidebar */
+.sidebar {
+    grid-area: sidebar;
+    background-color: var(--blue-600);
+    padding: calc(10px + 0.1vw);
+    color: var(--slate-100);
+    width: 17vw;
+    min-height: 100vh;
+}
+
+.sidebar > div {
+    display: flex;
+    align-items: center;
+    gap: calc(2px + 1vw);
+    font-size: 1.1vw;
+}
+
+.sidebar > div {
+    padding-bottom: calc(5px + 0.5vw);
+}
+
+.sidebar > div:first-child {
+    padding-bottom: calc(15px + 1vw);
+    font-size: 1.5vw;
+}
+
+.sidebar > div:first-child > img {
+    min-height: calc(25px + 1vw);
+}
+
+.sidebar > div:nth-child(7) {
+    padding-bottom: calc(15px + 1vw);
+}
+
+.sidebar > div > span {
+    cursor: pointer;
+}
+
+.sidebar > div > img {
+    cursor: pointer;
+}
+
+/* header */
+.header {
+    grid-area: header;
+    background-color: var(--slate-50);
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px;
+    padding-left: 30px;
+}
+
+/* header top side */
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(5px + 1vw);   
+}
+
+.search > img {
+    cursor: pointer;
+}
+
+.search-bar {
+    height: 20px;
+    width: calc(75px + max(100px, 35vw));
+    background-color: var(--gray-300);
+    border-radius: 10px;
+    border: 0;
+    padding-left: 10px;
+    outline-color: black;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(10px + 1vw);
+    margin-right: calc(10px + 2vw);
+}
+
+.profile-pic-small {
+    min-height: 45px;
+    min-width: 45px;
+    background-color: var(--profile-color);
+    border-radius: 100%;
+    text-align: center;
+    line-height: 45px;
+    color: white;
+    font-size: 0.95rem;
+}
+
+.bell {
+    cursor: pointer;
+}
+
+/* header bottom side */
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: calc(10px + 1vh);
+}
+
+.welcome {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.greeting > div:first-child {
+    font-size: 0.8rem;
+    margin-bottom: 1ox;
+}
+
+.name {
+    font-size: 1.1rem;
+}
+
+.profile-pic {
+    min-height: 55px;
+    min-width: 55px;
+    background-color: var(--profile-color);
+    border-radius: 100%;
+    text-align: center;
+    line-height: 55px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.user-info {
+    display: flex;
+    align-items:  center;
+    gap: 15px;
+    margin-left: calc(10px + 2vw);
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-right: calc(10px + 2vw);
+}
+
+button {
+    border-radius: 20px;
+    width: 90px;
+    height: 35px;
+    color: var(--slate-50);
+    background-color: var(--blue-700);
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+/* main */
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+        "header1 header2"
+        "projects side"
+        "projects side"
+        "projects side";
+}
+
+.main-header-1 {
+    grid-area: header1;
+    margin: 20px 10px 0px;
+    font-size: 1.1rem;
+}
+
+.main-header-2 {
+    grid-area: header2;
+    margin: 20px 10px 0px;
+    font-size: 1.1rem;
+}
+
+.main-header > div:last-child {
+    margin-right: 100px;
+}
+
+/* projects */
+.projects {
+    grid-area: projects;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-auto-rows: 200px;
+    gap: 20px;
+    padding: 10px;
+    width: 65vw;
+}
+
+.project-box {
+    background-color: #fff;
+    border-radius: 5px;
+    border-left: solid 5px var(--blue-400);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 6px;
+    overflow: auto;
+}
+
+.project-body {
+    font-size: 0.9rem;
+    margin-top: min(3px, 1vh);
+}
+
+.project-body {
+    font-weight: normal;
+    color: var(--text-font);
+}
+
+.project-icons {
+    text-align: right;
+    cursor: pointer;
+}
+
+/* side */
+.side {
+    grid-area: side;
+}
+
+/* announcements */
+.announcements {
+    font-size: 13px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 6px;
+    font-size: 0.85rem;
+}
+
+.divider {
+    border-top: 1px solid var(--gray-300);
+}
+
+.announce-body {
+    font-weight: normal;
+    padding-top: 3px;
+    color: var(--text-font);
+    font-size: 0.75rem;
+}
+
+/* trending */
+.trending-header {
+    padding: 10px 10px 0;
+    font-size: 1.1rem;
+}
+
+.trending {
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 6px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.username {
+    font-weight: normal;
+    font-size: 0.85rem;
+}
+
+.activity {
+    font-weight: normal;
+    color: var(--text-font);
+    font-size: 0.8rem;
+    margin-top: min(5px, 2vh);
+}
+
+.status > div:first-child {
+    min-height: 50px;
+    min-width: 50px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.user-pic-1 {
+    background-color: var(--red);
+}
+
+.user-pic-2 {
+    background-color: var(--profile-color);
+}
+
+.user-pic-3 {
+    background-color: var(--yellow);
+}
+
+.user-pic-4 {
+    background-color: var(--green);
+}
